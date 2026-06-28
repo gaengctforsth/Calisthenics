@@ -48,23 +48,38 @@
 33%{transform:translate(-14vw,10vh) scale(.95)}66%{transform:translate(10vw,-6vh) scale(1.2)}}
 50%{transform:translate(8vw,-12vh) scale(.85)}}
 
-html{background:var(--bg)}body{background:transparent}
+html{background:var(--bg)}
+body{background:
+  radial-gradient(120% 60% at 50% -8%,
+    color-mix(in srgb, var(--glow, var(--accent)) 26%, transparent) 0%,
+    color-mix(in srgb, var(--glow, var(--accent)) 9%, transparent) 30%,
+    color-mix(in srgb, var(--bg) 0%, transparent) 56%),
+  radial-gradient(90% 60% at 100% 8%,
+    color-mix(in srgb, var(--accent2, var(--accent)) 20%, transparent) 0%,
+    color-mix(in srgb, var(--accent2, var(--accent)) 0%, transparent) 48%),
+  radial-gradient(95% 55% at 0% 32%,
+    color-mix(in srgb, var(--accent) 16%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 0%, transparent) 50%),
+  radial-gradient(120% 80% at 50% 105%,
+    color-mix(in srgb, var(--glow, var(--accent2, var(--accent))) 16%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 0%, transparent) 55%),
+  var(--bg);
+  background-attachment:fixed,fixed,fixed,fixed,fixed}
 body{color:var(--ink);font-family:'Archivo','Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
 
 /* ===== BACKGROUND GLOW BLOBS (글래스 뒤 빛) ===== */
-.bg-blobs{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(72px);opacity:.34;will-change:transform}
-.blob.b1{width:46vw;height:46vw;background:var(--b1);top:-14vh;left:-20vw}
-.blob.b2{width:42vw;height:42vw;background:var(--b2);top:-8vh;right:-18vw}
-.blob.b3{width:40vw;height:40vw;background:var(--b3);top:24vh;left:-14vw}
+
+
+
+
+
 
 .char-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background-size:cover;background-position:top center;opacity:.5;filter:saturate(1.05);transition:opacity .4s;display:none}
 body.has-char .char-bg{display:block}
 .char-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 35%,transparent) 0%,color-mix(in srgb,var(--bg) 30%,transparent) 45%,color-mix(in srgb,var(--bg) 75%,transparent) 78%,var(--bg) 100%)}
 .char-veil{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.12) 28%,rgba(0,0,0,.4) 70%,var(--bg) 100%);transition:opacity .4s}
 body.has-char .char-veil{opacity:1}
-.bg-grain{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
-  linear-gradient(180deg,rgba(6,6,10,.25) 0%,rgba(6,6,10,.3) 32%,rgba(6,6,10,.7) 54%,var(--bg) 76%)}
+
 
 .app{max-width:560px;margin:0 auto;position:relative;min-height:100vh;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
 
@@ -300,15 +315,13 @@ body.has-char .char-veil{opacity:1}
 .theme-card.on .tc-check{background:var(--tc-accent);border-color:var(--tc-accent)}
 .theme-card.on .tc-check::after{content:'✓';font-size:11px;font-weight:900;color:#000}
 .drawer-sub{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);text-align:center;margin-top:14px}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.05ms!important}.blob{animation:none!important}
-body.has-char .blob{opacity:.32}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.05ms!important}
+body.has-char }
 </style>
 </head>
 <body>
-<div class="bg-blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div class="char-bg" id="charBg"></div>
 <div class="char-veil"></div>
-<div class="bg-grain"></div>
 <div class="app">
 
 <div class="topbar">
