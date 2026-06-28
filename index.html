@@ -52,20 +52,19 @@ html{background:var(--bg)}body{background:transparent}
 body{color:var(--ink);font-family:'Archivo','Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
 
 /* ===== BACKGROUND GLOW BLOBS (글래스 뒤 빛) ===== */
-.bg-blobs{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(64px);opacity:.5;will-change:transform}
-.blob.b1{width:58vw;height:58vw;background:var(--b1);top:-12vh;left:-18vw}
-.blob.b2{width:52vw;height:52vw;background:var(--b2);top:18vh;right:-22vw}
-.blob.b3{width:48vw;height:48vw;background:var(--b3);bottom:-18vh;left:8vw}
+.bg-blobs{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(72px);opacity:.34;will-change:transform}
+.blob.b1{width:46vw;height:46vw;background:var(--b1);top:-14vh;left:-20vw}
+.blob.b2{width:42vw;height:42vw;background:var(--b2);top:-8vh;right:-18vw}
+.blob.b3{width:40vw;height:40vw;background:var(--b3);top:24vh;left:-14vw}
 
 .char-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background-size:cover;background-position:top center;opacity:.5;filter:saturate(1.05);transition:opacity .4s;display:none}
 body.has-char .char-bg{display:block}
 .char-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 35%,transparent) 0%,color-mix(in srgb,var(--bg) 30%,transparent) 45%,color-mix(in srgb,var(--bg) 75%,transparent) 78%,var(--bg) 100%)}
 .char-veil{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.12) 28%,rgba(0,0,0,.4) 70%,var(--bg) 100%);transition:opacity .4s}
 body.has-char .char-veil{opacity:1}
-.bg-grain{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:1;background:
-  radial-gradient(120% 50% at 50% -5%,transparent 0%,transparent 35%,var(--bg) 88%),
-  linear-gradient(180deg,transparent 0%,transparent 30%,var(--bg) 75%);}
+.bg-grain{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+  linear-gradient(180deg,rgba(6,6,10,.25) 0%,rgba(6,6,10,.3) 32%,rgba(6,6,10,.7) 54%,var(--bg) 76%)}
 
 .app{max-width:560px;margin:0 auto;position:relative;min-height:100vh;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
 
